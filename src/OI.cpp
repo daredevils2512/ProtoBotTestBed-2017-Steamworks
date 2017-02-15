@@ -11,9 +11,9 @@ OI::OI() {
 	//driverController.reset(new Joystick(0));
 
 	// Process operator interface input here.
-	DR_button7.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::clockwise));
-	DR_button8.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::counterClockwise));
-	DR_button9.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::straight));
+//	DR_button7.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::clockwise));
+//	DR_button8.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::counterClockwise));
+//	DR_button9.WhileHeld(new AutoDrive(1.0, 1.0, Drivetrain::Direction::straight));
 	DR_thumbButton.WhileHeld(new GearVisionTurn(159));
 }
 

@@ -36,6 +36,10 @@ public:
 	static std::shared_ptr<frc::SPI> gearRealPixy;
 	static std::shared_ptr<frc::SPI> gearFakePixy;
 	static std::shared_ptr<Pixy> gearPixy;
+
+	static std::shared_ptr<frc::Encoder> drivetrainLeftEncoder;
+	static std::shared_ptr<frc::Encoder> drivetrainRightEncoder;
+
 	static void init();
 };
 #endif  // ROBOTMAP_H

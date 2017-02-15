@@ -8,6 +8,8 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
     Right = RobotMap::drivetrainRearRightMotor;
     Left = RobotMap::drivetrainRearLeftMotor;
 
+    leftEncoder = RobotMap::drivetrainLeftEncoder;
+    rightEncoder = RobotMap::drivetrainRightEncoder;
 }
 
 void Drivetrain::InitDefaultCommand() {
@@ -32,19 +34,28 @@ void Drivetrain::DriveRobotArcade(double move, double turn) {
 	Chassis->ArcadeDrive(move, turn, false); //remove the boolean
 
 }
-//double Drivetrain::GetEncoders() {
-//	//gets distance moved since last reset scaled by distance per pulse
-//	return ((Left->GetEncPosition() + Right->GetEncPosition()) / 2) * 0.0981747704246;
-//}
-//
-//void Drivetrain::ResetEncoders() {
-//	//resets the drivetrain encoder values
-//	Left->Reset();
-//	Right->Reset();
-//}
 
-//distance = inches
-//speed = inches per seconds
+double distancePerPulse = 0.0981747704246;
+
+double Drivetrain::GetEncoders() {
+	//gets distance moved since last reset scaled by distance per pulse
+	return ((leftEncoder->Get() + rightEncoder->Get()) / 2) * distancePerPulse;
+}
+
+void Drivetrain::ResetEncoders() {
+	//resets the drivetrain encoder values
+	leftEncoder->Reset();
+	rightEncoder->Reset();
+}
+
+double Drivetrain::GetLeftEncoder() {
+	return leftEncoder->Get() * distancePerPulse;
+};
+
+double Drivetrain::GetRightEncoder() {
+	return rightEncoder->Get() * distancePerPulse;
+};
+
 Drivetrain::Speeds Drivetrain::AutoCalcSpeeds(double radius/*in inches*/, double outerSpeed, Direction direction){
 	Speeds theSpeeds;
 	int width = 25;

@@ -9,6 +9,8 @@ std::shared_ptr<frc::RobotDrive> RobotMap::drivetrainChassis;
 std::shared_ptr<frc::SPI> RobotMap::gearRealPixy;
 std::shared_ptr<frc::SPI> RobotMap::gearFakePixy;
 std::shared_ptr<Pixy> RobotMap::gearPixy;
+std::shared_ptr<frc::Encoder> RobotMap::drivetrainLeftEncoder;
+std::shared_ptr<frc::Encoder> RobotMap::drivetrainRightEncoder;
 
 void RobotMap::init() {
 	//assigns ports and settings to pointer objects declared in RobotMap.h
@@ -38,4 +40,14 @@ void RobotMap::init() {
 	gearFakePixy.reset (new frc::SPI(frc::SPI::kOnboardCS3));
 
 	gearPixy.reset (new Pixy(gearRealPixy, gearFakePixy));
+
+    drivetrainLeftEncoder.reset(new frc::Encoder(0, 1, false, frc::Encoder::k4X));
+    lw->AddSensor("Drivetrain", "LeftEncoder", drivetrainLeftEncoder);
+    drivetrainLeftEncoder->SetDistancePerPulse(0.0153846154);
+    drivetrainLeftEncoder->SetPIDSourceType(frc::PIDSourceType::kRate);
+
+    drivetrainRightEncoder.reset(new frc::Encoder(2, 3, false, frc::Encoder::k4X));
+    lw->AddSensor("Drivetrain", "RightEncoder", drivetrainRightEncoder);
+    drivetrainRightEncoder->SetDistancePerPulse(0.0153846154);
+    drivetrainRightEncoder->SetPIDSourceType(frc::PIDSourceType::kRate);
 }
