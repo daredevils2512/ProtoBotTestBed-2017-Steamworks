@@ -6,7 +6,6 @@
 #include "Commands/Command.h"
 #include "LiveWindow/LiveWindow.h"
 #include "Subsystems/Drivetrain.h"
-#include "Subsystems/Gear.h"
 #include "OI.h"
 //class declaration of the robot
 class Robot : public IterativeRobot {
@@ -18,7 +17,6 @@ public:
 	LiveWindow *lw = LiveWindow::GetInstance();
 
 	static std::shared_ptr<Drivetrain> drivetrain;
-	static std::shared_ptr<Gear> gear;
 
 //declaration of robot class functions
 virtual void RobotInit();

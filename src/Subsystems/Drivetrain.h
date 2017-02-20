@@ -31,8 +31,7 @@ public:
 
 	enum class Direction {
 		clockwise,
-		counterClockwise,
-		straight
+		counterClockwise
 	};
 
 	Drivetrain();

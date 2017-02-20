@@ -3,7 +3,6 @@
 #include "Commands/AutoStraightDrive.h"
 #include "Subsystems/Drivetrain.h"
 #include "Commands/Drive.h"
-#include "Commands/GearVisionTurn.h"
 
 #include <WPILib.h>
 
@@ -20,7 +19,6 @@ OI::OI() {
 	DR_button10.WhileHeld(new AutoCircleDrive(129.5, 0.75, Drivetrain::Direction::counterClockwise, 0.0)); //right peg(works)
 	DR_button11.WhileHeld(new AutoCircleDrive(91.0, 0.75, Drivetrain::Direction::clockwise, 0.0)); //left peg(works)
 	DR_button12.WhileHeld(new AutoCircleDrive(158.0, 1.0, Drivetrain::Direction::clockwise, 0.0));
-	//DR_thumbButton.WhileHeld(new GearVisionTurn(159));
 }
 
 double OI::GetX() {

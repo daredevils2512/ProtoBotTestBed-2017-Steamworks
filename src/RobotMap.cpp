@@ -6,9 +6,6 @@ std::shared_ptr<Talon> RobotMap::drivetrainRearLeftMotor;
 std::shared_ptr<Talon> RobotMap::drivetrainFrontRightMotor;
 std::shared_ptr<Talon> RobotMap::drivetrainRearRightMotor;
 std::shared_ptr<frc::RobotDrive> RobotMap::drivetrainChassis;
-std::shared_ptr<frc::SPI> RobotMap::gearRealPixy;
-std::shared_ptr<frc::SPI> RobotMap::gearFakePixy;
-std::shared_ptr<Pixy> RobotMap::gearPixy;
 std::shared_ptr<frc::Encoder> RobotMap::drivetrainLeftEncoder;
 std::shared_ptr<frc::Encoder> RobotMap::drivetrainRightEncoder;
 
@@ -35,11 +32,6 @@ void RobotMap::init() {
 	drivetrainChassis->SetExpiration(0.5 );
 	drivetrainChassis->SetSensitivity(0.3);
 	drivetrainChassis->SetMaxOutput(1.0);
-
-	gearRealPixy.reset (new frc::SPI(frc::SPI::kOnboardCS0));
-	gearFakePixy.reset (new frc::SPI(frc::SPI::kOnboardCS3));
-
-	gearPixy.reset (new Pixy(gearRealPixy, gearFakePixy));
 
     drivetrainLeftEncoder.reset(new frc::Encoder(0, 1, false, frc::Encoder::k4X));
     lw->AddSensor("Drivetrain", "LeftEncoder", drivetrainLeftEncoder);

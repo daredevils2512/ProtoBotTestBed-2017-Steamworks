@@ -34,10 +34,11 @@ void Drivetrain::DriveRobotArcade(double move, double turn) {
 	//drives robot in arcade mode from specified values (TELEOP)
 	Chassis->ArcadeDrive(move, turn, false); //remove the boolean
 	std::cout << "Arcade Drive move: " << move << std::endl;
-		std::cout << "Arcade Drive turn: " << turn << std::endl;
+	std::cout << "Arcade Drive turn: " << turn << std::endl;
 
 }
 
+//For 128 click encoders
 double distancePerPulse = 0.0981747704246;
 
 double Drivetrain::GetEncoders() {
@@ -76,13 +77,6 @@ Drivetrain::Speeds Drivetrain::AutoCalcSpeeds(double radius/*in inches*/, double
 		std::cout << "Drivetrain: Inner speed " << innerSpeed << std::endl;
 		std::cout << "Drivetrain: Radius " << radius << std::endl;
 		theSpeeds.leftSpeed = innerSpeed;
-		theSpeeds.rightSpeed = outerSpeed;
-	}else if (direction == Direction::straight){
-		std::cout << "Direction: Straight" << std::endl;
-		std::cout << "Drivetrain: Outer speed " << outerSpeed << std::endl;
-		std::cout << "Drivetrain: Inner speed " << innerSpeed << std::endl;
-		std::cout << "Drivetrain: Radius " << radius << std::endl;
-		theSpeeds.leftSpeed = outerSpeed;
 		theSpeeds.rightSpeed = outerSpeed;
 	}
 	return theSpeeds;

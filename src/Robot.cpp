@@ -3,7 +3,6 @@
 //access pointer objects declared in Robot.h
 std::shared_ptr<Drivetrain> Robot::drivetrain;
 std::unique_ptr<OI> Robot::oi;
-std::shared_ptr<Gear> Robot::gear;
 
 void Robot::RobotInit() {
 	std::cout << "Robot Init" << std::endl;
@@ -13,7 +12,6 @@ void Robot::RobotInit() {
     //starts operator interface
     std::cout << "Robot OI Init" << std::endl;
     oi.reset(new OI());
-    gear.reset(new Gear());
   }
 
 void Robot::DisabledInit(){
