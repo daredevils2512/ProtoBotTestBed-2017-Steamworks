@@ -15,6 +15,7 @@ void Drivetrain::InitDefaultCommand() {
     // SetDefaultCommand(new MySpecialCommand());
 
 	SetDefaultCommand(new Drive());
+	std::cout << "Default driving" << std::endl;
 }
 
 // Put methods for controlling this subsystem
@@ -23,13 +24,15 @@ void Drivetrain::InitDefaultCommand() {
 void Drivetrain::DriveRobotTank(double leftSpeed, double rightSpeed) {
 	//drives robot in tank mode from specified values
 	Chassis->TankDrive(leftSpeed, rightSpeed);
-	std::cout << "Tank Drive: " << leftSpeed << std::endl;
-	std::cout << "Tank Drive: " << rightSpeed << std::endl;
+	std::cout << "Tank Drive left: " << leftSpeed << std::endl;
+	std::cout << "Tank Drive right: " << rightSpeed << std::endl;
 }
 
 void Drivetrain::DriveRobotArcade(double move, double turn) {
 	//drives robot in arcade mode from specified values (TELEOP)
 	Chassis->ArcadeDrive(move, turn, false); //remove the boolean
+	std::cout << "Arcade Drive move: " << move << std::endl;
+		std::cout << "Arcade Drive turn: " << turn << std::endl;
 
 }
 //double Drivetrain::GetEncoders() {
