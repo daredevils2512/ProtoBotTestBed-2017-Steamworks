@@ -19,6 +19,9 @@ private:
 	std::shared_ptr<Talon> Left;
 	std::shared_ptr<RobotDrive> Chassis;
 
+	std::shared_ptr<frc::Encoder> leftEncoder;
+	std::shared_ptr<frc::Encoder> rightEncoder;
+
 public:
 
 	struct Speeds {
@@ -38,10 +41,14 @@ public:
 	void DriveRobotTank(double leftSide, double rightSide);
 	void Shifter (frc::DoubleSolenoid::Value dir);
 	double GetEncoders();
+	void ResetEncoders();
+	double GetLeftEncoder();
+	double GetRightEncoder();
 	Speeds AutoCalcSpeeds(double radius, double outerSpeed, Direction direction);
 	void AutoSetSpeeds(Speeds theSpeeds);
 	bool IsWithinThreshold(double obj1X, double obj2X, int threshold);
 
+	const double distancePerPulse = 0.0490873852123;
 };
 
 #endif
