@@ -11,6 +11,8 @@ AutoCircleDrive::AutoCircleDrive(double radius, double outerSpeed, Drivetrain::D
 	m_radius = radius;
 	int width = 27;
 	double innerSpeed = ((m_radius - width / 2) / (m_radius + width/2) * outerSpeed);
+	std::cout << "Outer speed: " << outerSpeed << std::endl;
+	std::cout << "Inner speed: " << innerSpeed << std::endl;
 	switch (m_direction) {
 		case Drivetrain::Direction::clockwise:
 			m_leftSpeed = outerSpeed;

@@ -38,9 +38,6 @@ void Drivetrain::DriveRobotArcade(double move, double turn) {
 
 }
 
-//For 128 click encoders
-double distancePerPulse = 0.0981747704246;
-
 double Drivetrain::GetEncoders() {
 	//gets distance moved since last reset scaled by distance per pulse
 	return ((leftEncoder->Get() + rightEncoder->Get()) / 2) * distancePerPulse;

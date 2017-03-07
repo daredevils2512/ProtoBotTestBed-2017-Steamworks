@@ -8,6 +8,8 @@ std::shared_ptr<Talon> RobotMap::drivetrainRearRightMotor;
 std::shared_ptr<frc::RobotDrive> RobotMap::drivetrainChassis;
 std::shared_ptr<frc::Encoder> RobotMap::drivetrainLeftEncoder;
 std::shared_ptr<frc::Encoder> RobotMap::drivetrainRightEncoder;
+std::shared_ptr<frc::DigitalInput> RobotMap::gearPixyDigital;
+std::shared_ptr<frc::AnalogInput> RobotMap::gearPixyAnalog;
 
 void RobotMap::init() {
 	//assigns ports and settings to pointer objects declared in RobotMap.h
@@ -42,4 +44,8 @@ void RobotMap::init() {
     lw->AddSensor("Drivetrain", "RightEncoder", drivetrainRightEncoder);
     drivetrainRightEncoder->SetDistancePerPulse(0.0153846154);
     drivetrainRightEncoder->SetPIDSourceType(frc::PIDSourceType::kRate);
+
+	gearPixyDigital.reset(new frc::DigitalInput(5));
+
+	gearPixyAnalog.reset(new frc::AnalogInput(0));
 }

@@ -36,6 +36,9 @@ public:
 	static std::shared_ptr<frc::Encoder> drivetrainLeftEncoder;
 	static std::shared_ptr<frc::Encoder> drivetrainRightEncoder;
 
+	static std::shared_ptr<frc::DigitalInput> gearPixyDigital;
+	static std::shared_ptr<frc::AnalogInput> gearPixyAnalog;
+
 	static void init();
 };
 #endif  // ROBOTMAP_H
